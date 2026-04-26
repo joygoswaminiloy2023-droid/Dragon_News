@@ -10,8 +10,8 @@ const Nav = () => {
   const navlink = (
     <>
       <li><Link href="/" className={`${path==="/"?"border-b-2 border-black":""}`}>Home</Link></li>
-      <li><Link href="about">About</Link></li>
-      <li><Link href="career">Career</Link></li>
+      <li><Link href="About" className={`${path==="About"?"border-b-2 border-black":""}`}>About</Link></li>
+      <li><Link href="career" className={`${path==="Career"?"border-b-2 border-black":""}`}>Career</Link></li>
     </>
   );
   
@@ -20,7 +20,7 @@ const Nav = () => {
  <div className="max-w-7xl m-auto bg-white mb-6 lg:mb-12 rounded-md px-4 flex items-center justify-between">
 
 
-  <div className="w-1/3"></div>
+  <div className="w-0 md:w-1/3"></div>
 
   {/* CENTER */}
   <div className=" flex justify-center">
