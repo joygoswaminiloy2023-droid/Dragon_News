@@ -26,7 +26,7 @@ export default async function  Home() {
 <h1 className="font-bold text-2xl mb-5">All Category</h1>
      <div className="  text-center">
     
-    {getCatagory.data.news_category.map((cd,ind)=><LeftSec key={ind} cd={cd}></LeftSec>)}
+    {getCatagory.data.news_category.map((cd,ind)=><LeftSec key={ind} cd={cd} activeid={cd.category_id}></LeftSec>)}
   </div>
   </div>
  
