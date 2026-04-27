@@ -9,9 +9,9 @@ const Nav = () => {
     const path=usePathname();
   const navlink = (
     <>
-      <li><Link href="/" className={`${path==="/"?"border-b-2 border-black":""}`}>Home</Link></li>
-      <li><Link href="About" className={`${path==="About"?"border-b-2 border-black":""}`}>About</Link></li>
-      <li><Link href="career" className={`${path==="Career"?"border-b-2 border-black":""}`}>Career</Link></li>
+      <li><Link href="/" className={`${path==="/"?"border-b-2 border-pink-500":""}`}>Home</Link></li>
+      <li><Link href="About" className={`${path==="/About"?"border-b-2 border-pink-500":""}`}>About</Link></li>
+      <li><Link href="career" className={`${path==="Career"?"border-b-2 border-pink-500":""}`}>Career</Link></li>
     </>
   );
   
@@ -39,7 +39,7 @@ const Nav = () => {
       className="rounded-full"
     />
 
-    <button className="btn bg-slate-900 text-white hover:bg-[#0d9488]">
+    <button className="btn bg-slate-900 text-white hover:bg-pink-500">
       Log-in
     </button>
   </div>
