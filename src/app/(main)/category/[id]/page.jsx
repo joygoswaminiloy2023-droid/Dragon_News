@@ -2,6 +2,7 @@ import LeftSec from '@/Components/Home/LeftSec';
 import Mid from '@/Components/Home/Mid';
 import React from 'react';
 import {catagorylist,catagoryID} from "@/app/lib/api/connection"
+import RightSec from '@/Components/Home/RightSec';
 
 const Newscategory = async({params}) => {
     const {id}=await params;
@@ -50,8 +51,8 @@ const Newscategory = async({params}) => {
   )}
 </div>
   {/* right */}
- <div className="col-span-3 bg-green-100">
-<h1>right</h1>
+ <div className="col-span-3 ">
+<RightSec></RightSec>
   </div>
 
 </div>

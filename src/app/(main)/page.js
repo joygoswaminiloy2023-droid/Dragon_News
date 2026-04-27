@@ -2,6 +2,7 @@
 
 import LeftSec from "@/Components/Home/LeftSec";
 import Mid from "@/Components/Home/Mid";
+import RightSec from "@/Components/Home/RightSec";
 import Heading from "@/Components/header/Heading";
 import Nav from "@/Components/navbar/Nav";
 import {catagorylist,catagoryID} from "@/app/lib/api/connection"
@@ -14,7 +15,7 @@ export default async function  Home() {
 
 //catagory id
 
- const getCatagoryId=await catagoryID();
+ const getCatagoryId=await catagoryID("01");
  console.log(getCatagoryId.data);
   return (
   <>
@@ -26,7 +27,7 @@ export default async function  Home() {
 <h1 className="font-bold text-2xl mb-5">All Category</h1>
      <div className="  text-center">
     
-    {getCatagory.data.news_category.map((cd,ind)=><LeftSec key={ind} cd={cd} activeid={cd.category_id}></LeftSec>)}
+    {getCatagory.data.news_category.map((cd,ind)=><LeftSec key={ind} cd={cd} activeid={"01"}></LeftSec>)}
   </div>
   </div>
  
@@ -36,8 +37,8 @@ export default async function  Home() {
     {getCatagoryId.data.map((id,ind)=><Mid key={ind} id={id}></Mid>)}
 </div>
   {/* right */}
- <div className="col-span-3 bg-green-100">
-<h1>right</h1>
+ <div className="col-span-3">
+<RightSec></RightSec>
   </div>
 
 </div>
