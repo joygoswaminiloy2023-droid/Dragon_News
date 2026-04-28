@@ -9,15 +9,15 @@ const Nav = () => {
     const path=usePathname();
   const navlink = (
     <>
-      <li><Link href="/" className={`${path==="/"?"border-b-2 border-pink-500":""}`}>Home</Link></li>
-      <li><Link href="About" className={`${path==="About"?"border-b-2 border-pink-500":""}`}>About</Link></li>
-      <li><Link href="career" className={`${path==="Career"?"border-b-2 border-pink-500":""}`}>Career</Link></li>
+      <li><Link href="/" className={`${path==="/"?"border-b-2 border-pink-800":""}`}>Home</Link></li>
+      <li><Link href="About" className={`${path==="/About"?"border-b-2 border-pink-800":""}`}>About</Link></li>
+      <li><Link href="career" className={`${path==="/Career"?"border-b-2 border-pink-800":""}`}>Career</Link></li>
     </>
   );
   
 
   return (
- <div className="max-w-7xl m-auto bg-white mb-6 lg:mb-12 rounded-md px-4 flex items-center justify-between">
+ <div className="container m-auto bg-white mb-3 lg:mb-6 rounded-md px-4 flex items-center justify-between ">
 
 
   <div className="w-0 md:w-1/3"></div>
@@ -39,9 +39,9 @@ const Nav = () => {
       className="rounded-full"
     />
 
-    <button className="btn bg-slate-900 text-white hover:bg-pink-500">
+    <Link href="Login" className="btn bg-slate-900 text-white hover:bg-pink-800">
       Log-in
-    </button>
+    </Link>
   </div>
 
 </div>

@@ -11,7 +11,7 @@ const LeftSec = ({ cd, activeid }) => {
       <li
         className={`list-none py-2 px-3 transition hover:bg-gray-200 border-l-4 ${
           isActive
-            ? 'border-pink-500 bg-gray-100 font-semibold'
+            ? 'border-pink-800 bg-gray-100 font-semibold'
             : 'border-transparent opacity-70'
         }`}
       >

@@ -23,8 +23,8 @@ const Heading = () => {
         {format(new Date, "EEEE,MMMM dd,yyyy")}
        
         </div>
-<div className="mt-5 flex items-center bg-gray-300 p-2 rounded-md">
-    <span className="btn btn-secondary"> Breaking News</span>
+<div className="mt-5 flex items-center bg-gray-100 p-2 rounded-md">
+    <span className="btn bg-pink-800 text-white"> Breaking News</span>
      <BreakingNews /></div>
 
     </div>
