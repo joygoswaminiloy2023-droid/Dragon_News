@@ -5,6 +5,14 @@ import { FaEnvelope, FaLock, FaUser, FaImage } from "react-icons/fa";
 import newsBg from "@/assets/bg.jpg";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
+
+
+
+
+
+
 
 const Register = () => {
   const {
@@ -13,15 +21,32 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const registerHandler = (data) => {
-    console.log("Name:", data.name);
-    console.log("Photo URL:", data.photo);
-    console.log("Email:", data.email);
-    console.log("Password:", data.password);
+  const registerHandler = async (data) => {
+    // console.log("Name:", data.name);
+    // console.log("Photo URL:", data.photo);
+    // console.log("Email:", data.email);
+    // console.log("Password:", data.password);
+const{name,photo,email,password}=data;
+
+
+    const {data:res,error } = await authClient.signUp.email({
+    name: name, // required
+    email: email, // required
+    password:password,// required
+    image:photo,
+    callbackURL:"/",
+});
+
+if(error){
+toast.error(error.message)
+}
+if(res){
+toast.success(`Welcome to News Portal, ${data.name}`);
+}
   };
 
   return (
-    <div className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-[94.6vh] flex items-center justify-center overflow-hidden">
 
       {/* Background */}
       <div

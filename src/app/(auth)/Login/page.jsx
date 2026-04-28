@@ -4,14 +4,30 @@ import { FaEnvelope, FaLock, FaUserCircle } from 'react-icons/fa';
 import newsBg from "@/assets/bg.jpg"; // adjust path if needed
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
+import { toast } from 'react-toastify';
+import { authClient } from '@/lib/auth-client';
 
 const Login = () => {
 
-const loginhandler=(data)=>{
-console.log(data.email);
-console.log(data.password);
-}
+const loginhandler=async(data)=>{
+// console.log(data.email);
+// console.log(data.password);
+const{email,password,remember}=data;
 
+const { data:res, error } = await authClient.signIn.email({
+    email: email, // required
+    password: password, // required
+    rememberMe: remember,
+    callbackURL: "/",
+});
+
+console.log(error)
+if (error) {
+  toast.error(error.message);
+} else {
+  toast.success(`Welcome back, ${email}!`);
+}
+}
   const {
     register,
     handleSubmit,
@@ -22,7 +38,7 @@ console.log(data.password);
 
 
 
-<div className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+<div className="relative min-h-[94.6vh] flex items-center justify-center overflow-hidden">
   
   {/* Background Image */}
 <div
@@ -91,7 +107,7 @@ console.log(data.password);
       {/* Options */}
       <div className="flex justify-between items-center text-sm text-gray-700">
         <label className="flex items-center gap-2">
-          <input type="checkbox" className="checkbox checkbox-sm" />
+          <input type="checkbox" className="checkbox checkbox-sm" {...register("remember")}/>
           Remember me
         </label>
         <a href="#" className="hover:underline">Forgot?</a>

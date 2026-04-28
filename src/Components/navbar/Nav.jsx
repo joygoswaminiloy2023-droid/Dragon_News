@@ -4,9 +4,15 @@ import Link from "next/link";
 import React from "react";
 import profile from "@/assets/user.png";
 import { usePathname } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 const Nav = () => {
+
     const path=usePathname();
+    const { data: session } = authClient.useSession()
+    const User=session?.user
+    console.log(User)
+
   const navlink = (
     <>
       <li><Link href="/" className={`${path==="/"?"border-b-2 border-pink-800":""}`}>Home</Link></li>
@@ -17,7 +23,7 @@ const Nav = () => {
   
 
   return (
- <div className="container m-auto bg-white mb-3 lg:mb-6 rounded-md px-4 flex items-center justify-between ">
+ <div className="container m-auto bg-white  rounded-md px-4 flex items-center justify-between ">
 
 
   <div className="w-0 md:w-1/3"></div>
@@ -31,13 +37,14 @@ const Nav = () => {
 
   {/* RIGHT */}
   <div className="w-1/3 flex items-center justify-end gap-3">
-    <Image
-      src={profile}
-      alt="User"
-      width={40}
-      height={40}
-      className="rounded-full"
-    />
+ <Image
+  src={profile}
+  alt="User"
+  width={40}
+  height={40}
+  className="rounded-full"
+/>
+
 
     <Link href="Login" className="btn bg-slate-900 text-white hover:bg-pink-800">
       Log-in
