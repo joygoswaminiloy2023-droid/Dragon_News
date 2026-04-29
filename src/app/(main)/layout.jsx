@@ -1,5 +1,6 @@
 import Heading from '@/Components/header/Heading';
 import Nav from '@/Components/navbar/Nav';
+
 import React from 'react';
 
 const mainlayout = ({children}) => {

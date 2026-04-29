@@ -1,9 +1,11 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { FaBookmark, FaEye, FaShareAlt, FaStar } from 'react-icons/fa';
 
 
 const Mid = ({id}) => {
+  
     
     return (
     <div className="bg-white rounded-lg shadow p-4 space-y-4">
@@ -47,7 +49,7 @@ const Mid = ({id}) => {
       {/* Description */}
       <p className="text-sm text-gray-600">
         {id.details.slice(0, 150)}...
-        <span className="text-orange-500 cursor-pointer ml-1">Read More</span>
+        <Link href={`/news/${id._id}`} className="text-orange-500 cursor-pointer ml-1">Read More</Link>
       </p>
 
       {/* Footer */}
