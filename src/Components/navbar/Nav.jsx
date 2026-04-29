@@ -9,15 +9,15 @@ import { authClient } from "@/lib/auth-client";
 const Nav = () => {
 
     const path=usePathname();
-    const { data: session } = authClient.useSession()
+    const { data: session, isPending } = authClient.useSession()
     const User=session?.user
-    console.log(User)
+    // console.log(User)
 
   const navlink = (
     <>
       <li><Link href="/" className={`${path==="/"?"border-b-2 border-pink-800":""}`}>Home</Link></li>
       <li><Link href="About" className={`${path==="/About"?"border-b-2 border-pink-800":""}`}>About</Link></li>
-      <li><Link href="career" className={`${path==="/Career"?"border-b-2 border-pink-800":""}`}>Career</Link></li>
+      <li><Link href="Career" className={`${path==="/Career"?"border-b-2 border-pink-800":""}`}>Career</Link></li>
     </>
   );
   
@@ -36,21 +36,37 @@ const Nav = () => {
   </div>
 
   {/* RIGHT */}
-  <div className="w-1/3 flex items-center justify-end gap-3">
- <Image
-  src={profile}
+{
+  isPending?(<span className="loading loading-spinner text-secondary"></span>):User ? (
+    <div className="w-1/3 flex items-center justify-end gap-3">
+   <p>HI,{User.name}</p>
+    
+   <Image
+  src={User.image || profile}
   alt="User"
   width={40}
   height={40}
-  className="rounded-full"
+  className="w-10 h-10 rounded-full object-cover border-2 border-pink-800"
 />
-
-
-    <Link href="Login" className="btn bg-slate-900 text-white hover:bg-pink-800">
-      Log-in
-    </Link>
-  </div>
-
+   
+      
+      <button
+        className="btn bg-slate-900 text-white hover:bg-pink-800"
+       onClick={async()=>await authClient.signOut()}>
+        Log-Out
+      </button>
+    </div>
+  ) : (
+    <div className="w-1/3 flex items-center justify-end">
+      <Link
+        href="Login"
+        className="btn bg-slate-900 text-white hover:bg-pink-800"
+      >
+        Log-in
+      </Link>
+    </div>
+  )
+}
 </div>
   );
 };

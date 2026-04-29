@@ -9,13 +9,13 @@ const RightSec = () => {
 const data = await authClient.signIn.social({
     provider: "google",
   });
-  console.log(data)
+  // console.log(data)
   }
   const githubsignin =async()=>{
 const data = await authClient.signIn.social({
     provider: "github",
   });
-  console.log(data)
+  // console.log(data)
   }
   return (
     <div className="inline-flex flex-col p-5 bg-white border border-gray-200 rounded-lg shadow-sm min-w-[300px]">

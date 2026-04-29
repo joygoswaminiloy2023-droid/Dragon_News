@@ -12,16 +12,15 @@ const Login = () => {
 const loginhandler=async(data)=>{
 // console.log(data.email);
 // console.log(data.password);
-const{email,password,remember}=data;
+const{email,password}=data;
 
 const { data:res, error } = await authClient.signIn.email({
     email: email, // required
     password: password, // required
-    rememberMe: remember,
     callbackURL: "/",
 });
 
-console.log(error)
+// console.log(error)
 if (error) {
   toast.error(error.message);
 } else {
@@ -107,7 +106,7 @@ if (error) {
       {/* Options */}
       <div className="flex justify-between items-center text-sm text-gray-700">
         <label className="flex items-center gap-2">
-          <input type="checkbox" className="checkbox checkbox-sm" {...register("remember")}/>
+          <input type="checkbox" className="checkbox checkbox-sm" />
           Remember me
         </label>
         <a href="#" className="hover:underline">Forgot?</a>

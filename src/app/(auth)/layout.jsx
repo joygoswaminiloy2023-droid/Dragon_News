@@ -1,4 +1,4 @@
-import Heading from '@/Components/header/Heading';
+
 import Nav from '@/Components/navbar/Nav';
 import React from 'react';
 import { ToastContainer } from 'react-toastify';

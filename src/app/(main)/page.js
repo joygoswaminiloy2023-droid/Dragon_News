@@ -16,7 +16,7 @@ export default async function  Home() {
 //catagory id
 
  const getCatagoryId=await catagoryID("01");
- console.log(getCatagoryId.data);
+//  console.log(getCatagoryId.data);
   return (
   <>
 
