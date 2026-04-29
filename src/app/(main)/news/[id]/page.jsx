@@ -4,31 +4,46 @@ import { getnewsbyID } from '@/app/lib/api/connection'
 import Image from 'next/image';
 import Link from 'next/link';
 import { BiArrowBack } from 'react-icons/bi';
+import RightSec from '@/Components/Home/RightSec';
 
+
+export const generateMetadata=async({params})=>{
+  const {id}=await params;
+  console.log(id)
+  const news=await getnewsbyID(id);
+
+  return {
+  title: news.title,
+  description: news.details,
+};
+
+}
 
 const Newsdetails = async({params}) => {
 const {id}=await params;
 
 const news=await getnewsbyID(id);
-console.log(news);
+
 
     return (
-  <div className="max-w-3xl mx-auto my-8 bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden p-6">
-  {/* Featured Image */}
-<div className="relative w-full h-100"> {/* Set a height that fits your design */}
- <div className="relative w-full h-100 bg-gray-200 rounded-lg overflow-hidden">
+<div className="container mx-auto grid grid-cols-6 gap-x-10 ">
+
+  <div className=" col-span-5 ml-50 mx-auto  bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden p-6">
+ 
+<div className="relative w-full h-120"> {/* Set a height that fits your design */}
+ <div className="relative w-full h-120 bg-gray-200 rounded-lg overflow-hidden">
     <Image
           src={news.image_url}
           alt="news"
           width={600}
-          height={300}
-          className="rounded-md w-full object-cover"
+          height={600}
+          className="rounded-md w-full object-cover "
         />
 </div>
 </div>
 
   {/* Title */}
-  <h2 className="text-2xl font-bold text-gray-800 mb-4 leading-tight">
+  <h2 className="text-2xl mt-5 font-bold text-gray-800 mb-4 leading-tight">
     {news.title}
   </h2>
 
@@ -58,11 +73,18 @@ console.log(news);
 
   {/* Red Navigation Button */}
   <div className="border-t pt-6">
-    <Link href={`/category/${id}`} className="flex  items-center gap-2 bg-[#d32f4f] hover:bg-[#b22440] text-white px-6 py-2.5 rounded-md transition-colors text-sm font-medium">
+    <Link href={`/category/${news.category_id}`} className="flex  items-center gap-2 bg-[#d32f4f] hover:bg-[#b22440] text-white px-6 py-2.5 rounded-md transition-colors text-sm font-medium">
       <BiArrowBack></BiArrowBack>
       All news in this category
     </Link>
   </div>
+</div>
+
+<div className='col-span-1'>
+  <RightSec></RightSec>
+</div>
+
+
 </div>
     );
       
