@@ -41,13 +41,23 @@ const Nav = () => {
     <div className="w-1/3 flex items-center justify-end gap-3">
    <p>HI,{User.name}</p>
     
-   <Image
-  src={User.image || profile}
+   { User.image?(<Image
+  src={User.image}
+  alt="User"
+  width={40}
+  height={40}
+  className="w-10 h-10 rounded-full object-cover border-2 border-pink-800"
+/>):
+(
+<Image
+  src={profile}
   alt="User"
   width={40}
   height={40}
   className="w-10 h-10 rounded-full object-cover border-2 border-pink-800"
 />
+)
+}
    
       
       <button
