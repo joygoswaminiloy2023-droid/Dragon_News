@@ -1,4 +1,4 @@
-"use"
+
 import React from 'react';
 import { getnewsbyID } from '@/app/lib/api/connection'
 import Image from 'next/image';
