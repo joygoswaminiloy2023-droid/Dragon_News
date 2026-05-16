@@ -15,6 +15,27 @@ Dragon News is a modern news web application built with **Next.js**, delivering 
 Dragon News is a **server-rendered news platform** that fetches and displays categorized news content using a REST API. Built with Next.js, it leverages hybrid rendering (SSR/SSG) to optimize performance and SEO.
 
 ---
+## 📸 Screenshots
+
+<table width="100%">
+  <tr>
+    <td width="100%" colspan="2" align="center">
+      <h3>📰 Home Portal</h3>
+      <img src="./UI/Home.png" alt="Dragon News Home Screen" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <h3>🔑 Login Page</h3>
+      <img src="./UI/Login.png" alt="User Login Gateway" width="100%">
+    </td>
+    <td width="50%" align="center">
+      <h3>📝 Signup Page</h3>
+      <img src="./UI/Signup.png" alt="Account Registration" width="100%">
+    </td>
+  </tr>
+</table>
+
 
 ## 🚀 Key Features
 
